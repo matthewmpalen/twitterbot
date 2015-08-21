@@ -23,8 +23,7 @@ class BaseBot(object):
         access_token = config.get('bitly', 'access_token')
         self._bitly = Connection(access_token=access_token)
 
-    @classmethod
-    def create_bitly_url(self, orig_url):
+    def get_bitly_url(self, orig_url):
         data = self._bitly.shorten(orig_url)
         return data['url']
 
